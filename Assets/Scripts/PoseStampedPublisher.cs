@@ -26,16 +26,16 @@ public class PoseStampedPublisher : MonoBehaviour
         this._goal.header.stamp = new TimeMsg(0, 0);
     }
 
-    void Update()
-    {
-        // throw new NotImplementedException();
-        this._goal.pose.position = new PointMsg((float)_navGoal.transform.localPosition.z,
-            -(float)_navGoal.transform.localPosition.x, (float)_navGoal.transform.localPosition.y);
-        //convert unity frame to ROS frame as they differ
-        this._goal.pose.orientation = new QuaternionMsg((float)_navGoal.transform.localRotation.x,
-            (float)_navGoal.transform.localRotation.y, -(float)_navGoal.transform.localRotation.z,
-            -(float)_navGoal.transform.localRotation.w);
-
-        ros.Publish(navigationGoalTopic, this._goal);
-    }
+    // void Update()
+    // {
+    //     throw new NotImplementedException();
+    //     this._goal.pose.position = new PointMsg((float)_navGoal.transform.localPosition.z,
+    //         -(float)_navGoal.transform.localPosition.x, (float)_navGoal.transform.localPosition.y);
+    //     //convert unity frame to ROS frame as they differ
+    //     this._goal.pose.orientation = new QuaternionMsg((float)_navGoal.transform.localRotation.x,
+    //         (float)_navGoal.transform.localRotation.y, -(float)_navGoal.transform.localRotation.z,
+    //         -(float)_navGoal.transform.localRotation.w);
+    //
+    //     ros.Publish(navigationGoalTopic, this._goal);
+    // }
 }

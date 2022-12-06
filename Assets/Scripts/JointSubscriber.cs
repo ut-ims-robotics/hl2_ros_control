@@ -13,7 +13,7 @@ public class JointSubscriber : MonoBehaviour
     private string topicName = "/joint_states";
     
     [SerializeField]
-    private string[] jointNames;
+    private List<string> jointNames;
     
     [SerializeField]
     private GameObject[] jointObjects;
@@ -28,7 +28,7 @@ public class JointSubscriber : MonoBehaviour
     
     void JointStateCallback(JointStateMsg msg)
     {
-        for (int i = 0; i < jointNames.Length; i++)
+        for (int i = 0; i < jointNames.Count; i++)
         {
             if (jointNames[i] == msg.name[i])
             {
