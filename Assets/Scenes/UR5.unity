@@ -930,6 +930,18 @@ PrefabInstance:
       value: 0.70710707
       objectReference: {fileID: 0}
     - target: {fileID: 7230435223012471026, guid: 82e8e842864f00043955e3940892f583, type: 3}
+      propertyPath: m_AnchorPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230435223012471026, guid: 82e8e842864f00043955e3940892f583, type: 3}
+      propertyPath: m_ParentAnchorPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230435223012471026, guid: 82e8e842864f00043955e3940892f583, type: 3}
+      propertyPath: m_ParentAnchorPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230435223012471026, guid: 82e8e842864f00043955e3940892f583, type: 3}
       propertyPath: m_ParentAnchorRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
