@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 80655880}
   - component: {fileID: 80655881}
   - component: {fileID: 80655882}
+  - component: {fileID: 80655883}
   m_Layer: 0
   m_Name: UR5Real
   m_TagString: Untagged
@@ -184,6 +185,23 @@ MonoBehaviour:
   topicName: /joint_states
   jointNames: []
   jointObjects: []
+--- !u!114 &80655883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b4a05be6bcdd040b207918b3807c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manipulatorJoints:
+  - jointObject: {fileID: 0}
+    axis: 0
+    jointName: 
+  _automaticArticulationBodyRemoval: 1
 --- !u!1 &613134013
 GameObject:
   m_ObjectHideFlags: 0
