@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Unity.Robotics;
+using Unity.Robotics.UrdfImporter;
+
 public class ManipulatorJointControl : MonoBehaviour
 {
     [System.Serializable]
@@ -11,6 +14,9 @@ public class ManipulatorJointControl : MonoBehaviour
         Y,
         Z
     };
+    
+    //TODO: automate script to read all the joints from robot (apparently there is high chance it is possible
+    //TODO: and attach their object to the controller here.
     
     //write code to automatically fill the array of joint names based on object names used
     
