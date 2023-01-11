@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using Unity.Robotics;
@@ -19,6 +20,9 @@ public class ManipulatorJointControl : MonoBehaviour
     //TODO: and attach their object to the controller here.
     
     //write code to automatically fill the array of joint names based on object names used
+
+    [SerializeField]
+    private GameObject _manipulatorBaseLink;
     
     [System.Serializable]
     public struct JointDescription
@@ -27,7 +31,49 @@ public class ManipulatorJointControl : MonoBehaviour
         public RotationAxis axis;
         public string jointName;
     }
+    
+    public void SetSubscribeJointStates(bool publish) //adaptation of ROS# function
+    {
+        if (publish)
+        {
+            _addJoints(_manipulatorBaseLink.transform);
+        }
+        else
+        {
+            _manipulatorJoints = new JointDescription[0];
+        }
+    }
+    
+    JointDescription[] AppendToArray(JointDescription[] originalArray, JointDescription newElement)
+    {
+        JointDescription[] newArray = new JointDescription[originalArray.Length + 1];
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            newArray[i] = originalArray[i];
+        }
+        newArray[newArray.Length - 1] = newElement;
+        return newArray;
+    }
 
+    private void _addJoints(Transform ParentTransform)
+    {
+        Component[] children = ParentTransform.GetComponentsInChildren(typeof(Transform));
+        foreach (var child in children)
+        {
+            if (child.GetComponent<ArticulationBody>() != null)
+            {
+                // Debug.Log("Found joint: " + child.name + " with articulation body");
+                JointDescription jointDescriptionStruct = new JointDescription();
+                jointDescriptionStruct.jointObject = child.gameObject;
+                jointDescriptionStruct.jointName = child.name;
+                jointDescriptionStruct.axis = RotationAxis.X;
+                _manipulatorJoints = AppendToArray(_manipulatorJoints, jointDescriptionStruct);
+                // _addJoints(child.transform);
+            }
+        }
+        // Debug.Log("list of joints: " + _manipulatorJoints);
+    }
+    
     public JointDescription[] _manipulatorJoints;
 
     [SerializeField]
@@ -51,6 +97,8 @@ public class ManipulatorJointControl : MonoBehaviour
         {
             VARIABLE.enabled = false;
         }
+
+        SetSubscribeJointStates(true); //test
     }
 
     public void MoveJoint(string JointName, float angle)
