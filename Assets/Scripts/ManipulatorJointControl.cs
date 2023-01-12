@@ -13,7 +13,8 @@ public class ManipulatorJointControl : MonoBehaviour
     {
         X,
         Y,
-        Z
+        Z,
+        NONE
     };
     
     //TODO: automate script to read all the joints from robot (apparently there is high chance it is possible
@@ -36,11 +37,25 @@ public class ManipulatorJointControl : MonoBehaviour
     {
         if (publish)
         {
+            if (_manipulatorJoints.Length > 0)
+            {
+                return;
+            }
             _addJoints(_manipulatorBaseLink.transform);
+            ArticulationBody[] _allBodies = Resources.FindObjectsOfTypeAll<ArticulationBody>();
+            foreach (var VARIABLE in _allBodies)
+            {
+                VARIABLE.enabled = false;
+            }
         }
         else
         {
             _manipulatorJoints = new JointDescription[0];
+            ArticulationBody[] _allBodies = Resources.FindObjectsOfTypeAll<ArticulationBody>();
+            foreach (var VARIABLE in _allBodies)
+            {
+                VARIABLE.enabled = true;
+            }
         }
     }
     
@@ -68,6 +83,7 @@ public class ManipulatorJointControl : MonoBehaviour
                 jointDescriptionStruct.jointName = child.name;
                 jointDescriptionStruct.axis = RotationAxis.X;
                 _manipulatorJoints = AppendToArray(_manipulatorJoints, jointDescriptionStruct);
+                // child.transform.localRotation = Quaternion.Euler(20,0,0);
                 // _addJoints(child.transform);
             }
         }
@@ -95,10 +111,8 @@ public class ManipulatorJointControl : MonoBehaviour
         ArticulationBody[] _allBodies = Resources.FindObjectsOfTypeAll<ArticulationBody>();
         foreach (var VARIABLE in _allBodies)
         {
-            VARIABLE.enabled = false;
+            VARIABLE.enabled = true;
         }
-
-        SetSubscribeJointStates(true); //test
     }
 
     public void MoveJoint(string JointName, float angle)
