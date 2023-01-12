@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +9,6 @@ using Unity.Robotics.UrdfImporter;
 
 public class ManipulatorJointControl : MonoBehaviour
 {
-    [System.Serializable]
-    public enum RotationAxis
-    {
-        X,
-        Y,
-        Z,
-        NONE
-    };
-    
-    //TODO: automate script to read all the joints from robot (apparently there is high chance it is possible
-    //TODO: and attach their object to the controller here.
-    
-    //write code to automatically fill the array of joint names based on object names used
-
     [SerializeField]
     private GameObject _manipulatorBaseLink;
     
@@ -29,8 +16,8 @@ public class ManipulatorJointControl : MonoBehaviour
     public struct JointDescription
     {
         public GameObject jointObject;
-        public RotationAxis axis;
         public string jointName;
+        public double rotationAngle;
     }
     
     public void SetSubscribeJointStates(bool publish) //adaptation of ROS# function
@@ -81,13 +68,11 @@ public class ManipulatorJointControl : MonoBehaviour
                 JointDescription jointDescriptionStruct = new JointDescription();
                 jointDescriptionStruct.jointObject = child.gameObject;
                 jointDescriptionStruct.jointName = child.name;
-                jointDescriptionStruct.axis = RotationAxis.X;
+                jointDescriptionStruct.rotationAngle = 0;
                 _manipulatorJoints = AppendToArray(_manipulatorJoints, jointDescriptionStruct);
-                // child.transform.localRotation = Quaternion.Euler(20,0,0);
-                // _addJoints(child.transform);
+
             }
         }
-        // Debug.Log("list of joints: " + _manipulatorJoints);
     }
     
     public JointDescription[] _manipulatorJoints;
@@ -108,38 +93,30 @@ public class ManipulatorJointControl : MonoBehaviour
         {
             return;
         }
-        ArticulationBody[] _allBodies = Resources.FindObjectsOfTypeAll<ArticulationBody>();
-        foreach (var VARIABLE in _allBodies)
-        {
-            VARIABLE.enabled = true;
-        }
+    }
+
+    float angle_r = 0;
+    private void Update()
+    {
+        
+        MoveJoint("upper_arm_link",angle_r);
+        MoveJoint("shoulder_link",angle_r);
+        MoveJoint("forearm_link",angle_r);
+        angle_r += 0.1f;
     }
 
     public void MoveJoint(string JointName, float angle)
     {
-        foreach (var VARIABLE in _manipulatorJoints)
+        for (int i = 0; i < _manipulatorJoints.Length; i++)
         {
-            if (VARIABLE.jointName != JointName)
+            if (_manipulatorJoints[i].jointName != JointName)
             {
+                Debug.Log(JointName + " is not " + _manipulatorJoints[i].jointName);
                 continue;
             }
-            switch (VARIABLE.axis)
-            {
-                case RotationAxis.X:
-                    VARIABLE.jointObject.transform.rotation = Quaternion.Euler(angle, 0f, 0f);
-                    break;
-                
-                case RotationAxis.Y:
-                    VARIABLE.jointObject.transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                    break;
-                
-                case RotationAxis.Z:
-                    VARIABLE.jointObject.transform.rotation = Quaternion.Euler(0f, 0f, angle);
-                    break;
-                
-                default:
-                    break;
-            }
+            _manipulatorJoints[i].jointObject.transform.Rotate(Vector3.up, (float)_manipulatorJoints[i].rotationAngle-angle, Space.Self);
+            _manipulatorJoints[i].rotationAngle = angle;
+            break;
         }
     }
 }
