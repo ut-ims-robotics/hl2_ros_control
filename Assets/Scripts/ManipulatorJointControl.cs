@@ -12,13 +12,8 @@ public class ManipulatorJointControl : MonoBehaviour
     [SerializeField]
     private GameObject _manipulatorBaseLink;
     
-    [System.Serializable]
-    public struct JointDescription
-    {
-        public GameObject jointObject;
-        public string jointName;
-        public double rotationAngle;
-    }
+    [SerializeField]
+    private bool _automaticArticulationBodyRemoval = true;
     
     public void SetSubscribeJointStates(bool publish) //adaptation of ROS# function
     {
@@ -46,17 +41,46 @@ public class ManipulatorJointControl : MonoBehaviour
         }
     }
     
-    JointDescription[] AppendToArray(JointDescription[] originalArray, JointDescription newElement)
+    [System.Serializable]
+    public struct JointDescription
     {
-        JointDescription[] newArray = new JointDescription[originalArray.Length + 1];
-        for (int i = 0; i < originalArray.Length; i++)
-        {
-            newArray[i] = originalArray[i];
-        }
-        newArray[newArray.Length - 1] = newElement;
-        return newArray;
+        public GameObject jointObject;
+        public string jointName;
+        public double rotationAngle;
     }
+    
+    
+    public JointDescription[] _manipulatorJoints;
 
+    void Start()
+    {
+        for (int index = 0; index < _manipulatorJoints.Length; index++)
+        {
+            
+            _manipulatorJoints[index].jointName = _manipulatorJoints[index].jointObject.name;
+        }
+
+        if (!_automaticArticulationBodyRemoval)
+        {
+            return;
+        }
+    }
+    
+    public void MoveJoint(string JointName, float angle)
+    {
+        for (int i = 0; i < _manipulatorJoints.Length; i++)
+        {
+            if (_manipulatorJoints[i].jointName != JointName)
+            {
+                Debug.Log(JointName + " is not " + _manipulatorJoints[i].jointName);
+                continue;
+            }
+            _manipulatorJoints[i].jointObject.transform.Rotate(Vector3.up, (float)_manipulatorJoints[i].rotationAngle-angle, Space.Self);
+            _manipulatorJoints[i].rotationAngle = angle;
+            break;
+        }
+    }
+    
     private void _addJoints(Transform ParentTransform)
     {
         Component[] children = ParentTransform.GetComponentsInChildren(typeof(Transform));
@@ -75,48 +99,26 @@ public class ManipulatorJointControl : MonoBehaviour
         }
     }
     
-    public JointDescription[] _manipulatorJoints;
-
-    [SerializeField]
-    private bool _automaticArticulationBodyRemoval = true;
+    JointDescription[] AppendToArray(JointDescription[] originalArray, JointDescription newElement)
+    {
+        JointDescription[] newArray = new JointDescription[originalArray.Length + 1];
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            newArray[i] = originalArray[i];
+        }
+        newArray[newArray.Length - 1] = newElement;
+        return newArray;
+    }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        for (int index = 0; index < _manipulatorJoints.Length; index++)
-        {
-            
-            _manipulatorJoints[index].jointName = _manipulatorJoints[index].jointObject.name;
-        }
-
-        if (!_automaticArticulationBodyRemoval)
-        {
-            return;
-        }
-    }
-
-    float angle_r = 0;
-    private void Update()
-    {
-        
-        MoveJoint("upper_arm_link",angle_r);
-        MoveJoint("shoulder_link",angle_r);
-        MoveJoint("forearm_link",angle_r);
-        angle_r += 0.1f;
-    }
-
-    public void MoveJoint(string JointName, float angle)
-    {
-        for (int i = 0; i < _manipulatorJoints.Length; i++)
-        {
-            if (_manipulatorJoints[i].jointName != JointName)
-            {
-                Debug.Log(JointName + " is not " + _manipulatorJoints[i].jointName);
-                continue;
-            }
-            _manipulatorJoints[i].jointObject.transform.Rotate(Vector3.up, (float)_manipulatorJoints[i].rotationAngle-angle, Space.Self);
-            _manipulatorJoints[i].rotationAngle = angle;
-            break;
-        }
-    }
+    
+    
+    // float angle_r = 0;
+    // private void Update()
+    // {
+    //     
+    //     MoveJoint("upper_arm_link",angle_r);
+    //     MoveJoint("shoulder_link",angle_r);
+    //     MoveJoint("forearm_link",angle_r);
+    //     angle_r += 0.1f; //testing. increases goal angle by 0.1 degree every frame
+    // }
 }

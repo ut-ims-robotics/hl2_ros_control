@@ -11,29 +11,25 @@ public class JointSubscriber : MonoBehaviour
     
     [SerializeField]
     private string topicName = "/joint_states";
-    
-    [SerializeField]
-    private List<string> jointNames;
-    
-    [SerializeField]
-    private GameObject[] jointObjects;
+
+    private ManipulatorJointControl jointControlHandler;
     //TODO: make a game object parser to get the joint objects from arm
     
     void Start()
     {
+        jointControlHandler = transform.GetComponent<ManipulatorJointControl>();
         ROSConnection ros = ROSConnection.GetOrCreateInstance();
         ros.Subscribe<JointStateMsg>(topicName, JointStateCallback);
         
+
     }
     
     void JointStateCallback(JointStateMsg msg)
     {
-        for (int i = 0; i < jointNames.Count; i++)
+        int msgLength = msg.name.Length;
+        for (int i = 0; i < msgLength; i++)
         {
-            if (jointNames[i] == msg.name[i])
-            {
-                jointObjects[i].transform.localRotation = Quaternion.Euler(0, 0, (float)msg.position[i]);
-            }
+            jointControlHandler.MoveJoint(msg.name[i], (float)msg.position[i]);
         }
     }
 }
