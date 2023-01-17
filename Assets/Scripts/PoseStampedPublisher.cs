@@ -77,7 +77,7 @@ public class PoseStampedPublisher : MonoBehaviour
         this._goal.pose.orientation.z = UnityRotation.z;
         this._goal.pose.orientation.w = UnityRotation.w;
     }
-    public void SetRotation(float UnityX, float UnityY, float UnityZ, float UnityW)
+    public void SetOrientation(float UnityX, float UnityY, float UnityZ, float UnityW)
     {
         Quaternion UnityRotation = new Quaternion(UnityX, UnityY, UnityZ, UnityW);
 
@@ -93,7 +93,7 @@ public class PoseStampedPublisher : MonoBehaviour
         this._goal.pose.orientation.w = UnityRotation.w;
     }
     
-    void SetTime(TimeMsg time)
+    public void SetTime(TimeMsg time)
     {
         this._goal.header.stamp = time;
     }
