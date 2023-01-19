@@ -10,36 +10,20 @@ using RosMessageTypes.Std;
 public class PoseStampedPublisher : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _pose;
-    [SerializeField]
     private String navigationGoalTopic = "/nav_goal";
-    [SerializeField]
-    private String navigationGoalFrame = "map";
 
     private PoseStampedMsg _goal;
 
     private ROSConnection ros;
-
-    [SerializeField]
-    private bool _constPublish = false;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<PoseStampedMsg>(navigationGoalTopic);
-        this._goal.header.frame_id = navigationGoalFrame;
+        _goal = new PoseStampedMsg();
         this._goal.header.stamp = new TimeMsg(0, 0);
-    }
-
-    private void Update()
-    {
-        SetPosition(_pose);
-        SetRotation(_pose);
-        if (_constPublish)
-        {
-            GoalPublish();
-        }
     }
 
     public void GoalPublish()
@@ -47,52 +31,33 @@ public class PoseStampedPublisher : MonoBehaviour
         ros.Publish(navigationGoalTopic, this._goal);
     }
     
-    public void SetPosition(GameObject pose)
+    public void SetPosition(Vector3 unityCoords)
     {
-        this._goal.pose.position.x = pose.transform.position.z;
-        this._goal.pose.position.y = -pose.transform.position.x;
-        this._goal.pose.position.z = pose.transform.position.y;
-        //different coordinate systems
-    }
-    public void SetPosition(float UnityX, float UnityY, float UnityZ)
-    {
-        this._goal.pose.position.x = UnityZ;
-        this._goal.pose.position.y = -UnityX;
-        this._goal.pose.position.z = UnityY;
+        this._goal.pose.position.x = unityCoords.z;
+        this._goal.pose.position.y = -unityCoords.x;
+        this._goal.pose.position.z = unityCoords.y;
         //different coordinate systems
     }
     
-    public void SetRotation(GameObject pose)
+    public void SetOrientation(Quaternion unityRotation)
     {
-        Quaternion UnityRotation = pose.transform.rotation;
 
-        Quaternion ROSRotation = Quaternion.identity;
-        ROSRotation.eulerAngles = new Vector3(
-            UnityRotation.eulerAngles.z,
-            -UnityRotation.eulerAngles.x,
-            -UnityRotation.eulerAngles.y);
+        Quaternion rosRotation = Quaternion.identity;
+        rosRotation.eulerAngles = new Vector3(
+            unityRotation.eulerAngles.z,
+            -unityRotation.eulerAngles.x,
+            -unityRotation.eulerAngles.y);
 
-        this._goal.pose.orientation.x = UnityRotation.x;
-        this._goal.pose.orientation.y = UnityRotation.y;
-        this._goal.pose.orientation.z = UnityRotation.z;
-        this._goal.pose.orientation.w = UnityRotation.w;
-    }
-    public void SetOrientation(float UnityX, float UnityY, float UnityZ, float UnityW)
-    {
-        Quaternion UnityRotation = new Quaternion(UnityX, UnityY, UnityZ, UnityW);
-
-        Quaternion ROSRotation = Quaternion.identity;
-        ROSRotation.eulerAngles = new Vector3(
-            UnityRotation.eulerAngles.z,
-            -UnityRotation.eulerAngles.x,
-            -UnityRotation.eulerAngles.y);
-
-        this._goal.pose.orientation.x = UnityRotation.x;
-        this._goal.pose.orientation.y = UnityRotation.y;
-        this._goal.pose.orientation.z = UnityRotation.z;
-        this._goal.pose.orientation.w = UnityRotation.w;
+        this._goal.pose.orientation.x = unityRotation.x;
+        this._goal.pose.orientation.y = unityRotation.y;
+        this._goal.pose.orientation.z = unityRotation.z;
+        this._goal.pose.orientation.w = unityRotation.w;
     }
     
+    public void SetTfFrame(string frame)
+    {
+        this._goal.header.frame_id = frame;
+    }
     public void SetTime(TimeMsg time)
     {
         this._goal.header.stamp = time;

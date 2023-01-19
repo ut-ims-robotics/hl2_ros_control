@@ -257,10 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00ba93dc3fd06c43a1d40014d517ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pose: {fileID: 0}
   navigationGoalTopic: /nav_goal
-  navigationGoalFrame: map
-  _constPublish: 0
 --- !u!114 &80655882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,7 +3851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0a8d70f25bcb84e99df5e328ae0668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goalMarker: {fileID: 578365721}
+  goalMarker: {fileID: 578365721}
+  tfFrame: map
 --- !u!114 &594923335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3867,10 +3865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00ba93dc3fd06c43a1d40014d517ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pose: {fileID: 578365721}
   navigationGoalTopic: /nav_goal
-  navigationGoalFrame: map
-  _constPublish: 0
 --- !u!114 &594923336
 MonoBehaviour:
   m_ObjectHideFlags: 0

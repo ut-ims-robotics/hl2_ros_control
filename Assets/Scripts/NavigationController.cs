@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using RosMessageTypes.BuiltinInterfaces;
 using UnityEngine;
 using RosMessageTypes.Geometry;
+using System;
 
 public class NavigationController : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class NavigationController : MonoBehaviour
     private PoseStampedMsg _navGoal;
     
     [SerializeField]
-    private GameObject _goalMarker;
+    private GameObject goalMarker;
+    
+    [SerializeField]
+    private string tfFrame = "map";
     
     private PoseStampedPublisher _navGoalPublisher;
 
@@ -19,25 +23,34 @@ public class NavigationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float stime = Time.time;
-        _timeStamp.sec = (uint)stime;
-        Debug.Log("float time " + stime + " Time.time" + _timeStamp.sec);
+        double timeSinceEpoch =
+            (DateTime.UtcNow -
+             new DateTime(
+                 1970,
+                 1,
+                 1,
+                 0,
+                 0,
+                 0,
+                 DateTimeKind.Utc)).TotalSeconds;
+        _timeStamp = new TimeMsg();
+        _timeStamp.sec = (uint)timeSinceEpoch;
+        Debug.Log("float time " + timeSinceEpoch + " Time.time" + _timeStamp.sec);
         _navGoalPublisher = transform.GetComponent<PoseStampedPublisher>();
+        if (_navGoalPublisher == null)
+        {
+            Debug.LogError("No PoseStampedPublisher component found on this object.");
+        }
+
+        _navGoal = new PoseStampedMsg();
+        _navGoalPublisher.SetTfFrame(tfFrame);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _navGoalPublisher.SetPosition(
-            _goalMarker.transform.position.x,
-            _goalMarker.transform.position.y,
-            _goalMarker.transform.position.z);
-        
-        _navGoalPublisher.SetOrientation(
-            _goalMarker.transform.rotation.x,
-            _goalMarker.transform.rotation.y,
-            _goalMarker.transform.rotation.z,
-            _goalMarker.transform.rotation.w);
+        _navGoalPublisher.SetPosition(goalMarker.transform.position);
+        _navGoalPublisher.SetOrientation(goalMarker.transform.rotation);
         
         // _navGoalPublisher.SetTime();
     }

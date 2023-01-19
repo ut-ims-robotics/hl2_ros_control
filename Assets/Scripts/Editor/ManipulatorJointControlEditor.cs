@@ -18,7 +18,9 @@ public class ManipulatorJointControlEditor : Editor
         manipulatorJointControl = (ManipulatorJointControl)target;
         
         GUILayout.Label("All Urdf Joints", EditorStyles.boldLabel);
-        DisplaySettingsToggle(new GUIContent("Add/remove joint states", "Adds/removes a Joint State Reader on each joint."),
+        DisplaySettingsToggle(new GUIContent
+                ("Add/remove joint states", 
+                    "Adds/removes a Joint State Reader on each joint."),
             manipulatorJointControl.SetSubscribeJointStates);
 
 
