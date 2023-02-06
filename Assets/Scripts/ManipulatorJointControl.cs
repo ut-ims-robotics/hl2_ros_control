@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 using Unity.Robotics;
-using Unity.Robotics.UrdfImporter;
+//using Unity.Robotics.UrdfImporter;
 
 public class ManipulatorJointControl : MonoBehaviour
 {
