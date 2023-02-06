@@ -349,9 +349,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: imu_link_to_imu_frame_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &79186954
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -630,9 +634,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: br_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &82032077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,9 +863,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: ur5e_base_link-base_link_inertia
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &101693593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,9 +1046,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: us_1_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &112550444
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1196,9 +1212,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: br_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &119343401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,9 +2526,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: us_1_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &168257366
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2921,9 +2945,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_1_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &213671330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3101,9 +3129,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: br_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &228838112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,9 +3942,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: ur5e_base_link-base_fixed_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &272838779
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4304,9 +4340,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &319629697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4637,9 +4677,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fr_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &367184801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,9 +5116,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_3-flange
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &384244225
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -5189,9 +5237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_imu_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &387487731
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -5659,9 +5711,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_1_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &439376792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5973,9 +6029,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_3_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &469795910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6345,9 +6405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: left_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &495582027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6523,9 +6587,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: box_mir100
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &498966913
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -6641,9 +6709,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: bl_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &504624471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7372,9 +7444,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: us_2_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &570459083
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -7955,7 +8031,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613134013}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1826476478, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
@@ -8178,9 +8254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_back_laser_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &618545158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8419,9 +8499,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fr_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &629505208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8555,9 +8639,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: br_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &631790002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8735,9 +8823,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_3-flange
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &637249814
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -9308,9 +9400,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: box_ur5e
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &675268137
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -12435,9 +12531,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: elbow_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &940115851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12914,9 +13014,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: bl_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &973709182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13645,9 +13749,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: ur5e_base_link-base_fixed_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1033155259
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -13939,9 +14047,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_front_laser_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1056792405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14283,9 +14395,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: ur5e_base_link-base_link_inertia
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1077005908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14551,9 +14667,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: right_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1094565690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15109,9 +15229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: us_2_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1134973019
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -15611,9 +15735,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: elbow_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1181068677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16188,9 +16316,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fl_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1203537857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16702,9 +16834,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: box_ur5e
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1250956417
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -16930,9 +17066,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: shoulder_pan_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1262739480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18339,9 +18479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_front_laser_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1351806845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18520,9 +18664,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_2_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1356928002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18656,9 +18804,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fr_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1373520307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18790,9 +18942,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: flange-tool0
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1373674645
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -19490,9 +19646,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: right_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1415974013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19750,9 +19910,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_back_laser_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1439030335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20100,9 +20264,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: shoulder_lift_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1461048571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20412,9 +20580,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fl_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1464008672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20548,9 +20720,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fl_caster_rotation_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1467044987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21272,9 +21448,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: box_mir100
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1564772084
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -21874,9 +22054,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: left_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1582794338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22010,9 +22194,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_2_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1590585217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22268,9 +22456,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: wrist_3_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1600386905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22402,9 +22594,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: flange-tool0
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1608583872
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -22849,9 +23045,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_surface_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1657061633
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -23097,9 +23297,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_to_imu_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &1683712329
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -23803,9 +24007,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1747112685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24028,9 +24236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: shoulder_lift_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1788771267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25693,9 +25905,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fl_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1913509154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26767,9 +26983,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: fr_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1991573111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26903,9 +27123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: shoulder_pan_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &1999171477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27183,9 +27407,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: bl_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &2011875180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27685,9 +27913,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: base_link_surface_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &2064061030
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -27845,9 +28077,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: imu_link_to_imu_frame_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!171741748 &2070198491
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -28426,9 +28662,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxis: 0
+  unityJoint: {fileID: 0}
+  axisofMotion: {x: 0, y: 0, z: 0}
   jointName: bl_caster_wheel_joint
   EffortLimit: 1000
   VelocityLimit: 1000
+  defaultDamping: 0
+  defaultFriction: 0
 --- !u!114 &2134149182
 MonoBehaviour:
   m_ObjectHideFlags: 0
