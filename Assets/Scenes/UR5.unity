@@ -423,6 +423,9 @@ GameObject:
   - component: {fileID: 80655882}
   - component: {fileID: 80655883}
   - component: {fileID: 80655881}
+  - component: {fileID: 80655885}
+  - component: {fileID: 80655884}
+  - component: {fileID: 80655886}
   m_Layer: 0
   m_Name: UR5Real
   m_TagString: Untagged
@@ -575,6 +578,44 @@ MonoBehaviour:
   - jointObject: {fileID: 2070198488}
     jointName: imu_frame
     rotationAngle: 0
+--- !u!114 &80655884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0df2fedc855700438f1a657adde21fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolTopic: /is_done
+--- !u!114 &80655885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79417405e3f50842bce4c54d419b0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolTopic: /to_execute
+--- !u!114 &80655886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bc2f479d5ed064c96fcce634257622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &82032074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7568,7 +7609,19 @@ MonoBehaviour:
       m_Calls: []
   onManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 594923334}
+        m_TargetAssemblyTypeName: NavigationController, Assembly-CSharp
+        m_MethodName: PublishNavGoal
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 578365721}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -27443,7 +27496,19 @@ MonoBehaviour:
       m_Calls: []
   onManipulationEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 489683657}
+        m_TargetAssemblyTypeName: PoseStampedPublisher, Assembly-CSharp
+        m_MethodName: GoalPublish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHoverEntered:
     m_PersistentCalls:
       m_Calls: []
