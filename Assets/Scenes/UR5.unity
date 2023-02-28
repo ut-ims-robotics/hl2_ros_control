@@ -432,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &80655880
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationGoalTopic: /nav_goal
+  _gameObject: {fileID: 0}
 --- !u!114 &80655882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6135,6 +6136,7 @@ GameObject:
   - component: {fileID: 489683659}
   - component: {fileID: 489683658}
   - component: {fileID: 489683657}
+  - component: {fileID: 489683660}
   m_Layer: 0
   m_Name: UR5Querry
   m_TagString: Untagged
@@ -6169,6 +6171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationGoalTopic: /unity/end_effector_goal
+  _gameObject: {fileID: 2076801764}
 --- !u!114 &489683658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6287,6 +6290,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topicName: /querry_states
+--- !u!114 &489683660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489683655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7601b8716acaba04b9acac75b6b7f546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 2076801764}
 --- !u!1 &495582024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7927,6 +7943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationGoalTopic: /unity/end_effector_goal
+  _gameObject: {fileID: 0}
 --- !u!114 &594923336
 MonoBehaviour:
   m_ObjectHideFlags: 0
