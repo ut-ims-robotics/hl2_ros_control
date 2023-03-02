@@ -256,7 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &54175443
 GameObject:
   m_ObjectHideFlags: 8
@@ -348,10 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: imu_link_to_imu_frame_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &79186954
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -416,7 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &80655879
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,13 +423,16 @@ GameObject:
   - component: {fileID: 80655882}
   - component: {fileID: 80655883}
   - component: {fileID: 80655881}
+  - component: {fileID: 80655885}
+  - component: {fileID: 80655884}
+  - component: {fileID: 80655886}
   m_Layer: 0
   m_Name: UR5Real
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &80655880
 Transform:
   m_ObjectHideFlags: 0
@@ -463,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationGoalTopic: /nav_goal
+  _gameObject: {fileID: 0}
 --- !u!114 &80655882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +579,44 @@ MonoBehaviour:
   - jointObject: {fileID: 2070198488}
     jointName: imu_frame
     rotationAngle: 0
+--- !u!114 &80655884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0df2fedc855700438f1a657adde21fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolTopic: /ros/is_done
+--- !u!114 &80655885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79417405e3f50842bce4c54d419b0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolTopic: /unity/to_plan
+--- !u!114 &80655886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80655879}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bc2f479d5ed064c96fcce634257622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &82032074
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,10 +665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: br_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &82032077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,12 +677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &82032078
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -715,7 +741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &84503170
 GameObject:
   m_ObjectHideFlags: 8
@@ -854,10 +879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: ur5e_base_link-base_link_inertia
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &101693593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,12 +891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0044333315, y: 0.0072000003, z: 0.0044333315}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &101693594
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -940,7 +955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &111699105
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &112550441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: us_1_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &112550444
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1101,7 +1110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &118629437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &119343398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,10 +1202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: br_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &119343401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,12 +1214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &119343402
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1281,7 +1278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &121152819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &124095726
 GameObject:
   m_ObjectHideFlags: 8
@@ -2454,10 +2449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4c79288754864b8d522b69f4b52a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FilePath: 
-  chosenAxis: 0
-  currentOrientation: 0
-  collisionExceptions: []
 --- !u!1 &168257363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,10 +2496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: us_1_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &168257366
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2573,7 +2560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &173648299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &204583787
 GameObject:
   m_ObjectHideFlags: 8
@@ -2920,10 +2905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_1_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &213671330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2936,12 +2917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.002559899, y: 0.0021942, z: 0.002559899}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &213671331
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -3006,7 +2981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &220063446
 GameObject:
   m_ObjectHideFlags: 8
@@ -3100,10 +3074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: br_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &228838112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3116,12 +3086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &228838113
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -3186,7 +3150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &230874351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3496,7 +3459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &241073652
 GameObject:
   m_ObjectHideFlags: 8
@@ -3585,7 +3547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &252649551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,12 +3644,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252649551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.04, z: 1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1976088276}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &252649555
 MonoBehaviour:
@@ -3909,10 +3869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: ur5e_base_link-base_fixed_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &272838779
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -3977,7 +3933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &290793996
 GameObject:
   m_ObjectHideFlags: 8
@@ -4152,7 +4107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &305469110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4197,7 +4151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &316289490
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,7 +4195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &319629694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,10 +4255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &319629697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4319,12 +4267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.15, z: -0.012354}
-  inertiaTensor: {x: 1.8608326, y: 2.181666, z: 0.83416635}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &319629698
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4389,7 +4331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &321530277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,7 +4375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &322281418
 GameObject:
   m_ObjectHideFlags: 8
@@ -4636,10 +4576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fr_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &367184801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,12 +4588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &367184802
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -4722,7 +4652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &371015964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4894,7 +4823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1001 &379655268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5022,7 +4950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &384244222
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,10 +4998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_3-flange
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &384244225
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -5139,7 +5062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &387487728
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,10 +5110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_imu_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &387487731
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -5256,7 +5174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &390628433
 GameObject:
   m_ObjectHideFlags: 8
@@ -5345,7 +5262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &400834608
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,7 +5306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &417477104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,7 +5478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &436473047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &439376789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,10 +5571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_1_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &439376792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5674,12 +5583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.002559899, y: 0.0021942, z: 0.002559899}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &439376793
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -5744,7 +5647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &455896641
 GameObject:
   m_ObjectHideFlags: 8
@@ -5833,7 +5735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &460416087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5878,7 +5779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &461265293
 GameObject:
   m_ObjectHideFlags: 8
@@ -5972,10 +5872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_3_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &469795910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5988,12 +5884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0229, z: 0}
-  inertiaTensor: {x: 0.00009890409, y: 0.00013211719, z: 0.00009890409}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &469795911
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -6058,7 +5948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &470924852
 GameObject:
   m_ObjectHideFlags: 0
@@ -6103,7 +5992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &483051517
 GameObject:
   m_ObjectHideFlags: 8
@@ -6247,6 +6135,8 @@ GameObject:
   - component: {fileID: 489683656}
   - component: {fileID: 489683659}
   - component: {fileID: 489683658}
+  - component: {fileID: 489683657}
+  - component: {fileID: 489683660}
   m_Layer: 0
   m_Name: UR5Querry
   m_TagString: Untagged
@@ -6268,6 +6158,20 @@ Transform:
   m_Father: {fileID: 2038690695}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489683657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489683655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00ba93dc3fd06c43a1d40014d517ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigationGoalTopic: /unity/end_effector_goal
+  _gameObject: {fileID: 2076801764}
 --- !u!114 &489683658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6282,7 +6186,97 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _manipulatorBaseLink: {fileID: 164938418}
   _automaticArticulationBodyRemoval: 1
-  _manipulatorJoints: []
+  _manipulatorJoints:
+  - jointObject: {fileID: 1747112682}
+    jointName: base_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1657061630}
+    jointName: surface
+    rotationAngle: 0
+  - jointObject: {fileID: 1564772081}
+    jointName: box_link
+    rotationAngle: 0
+  - jointObject: {fileID: 675268134}
+    jointName: ur5e_base_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1033155256}
+    jointName: ur5e_base
+    rotationAngle: 0
+  - jointObject: {fileID: 101693590}
+    jointName: ur5e_base_link_inertia
+    rotationAngle: 0
+  - jointObject: {fileID: 1262739477}
+    jointName: shoulder_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1461048568}
+    jointName: upper_arm_link
+    rotationAngle: 0
+  - jointObject: {fileID: 940115848}
+    jointName: forearm_link
+    rotationAngle: 0
+  - jointObject: {fileID: 213671327}
+    jointName: wrist_1_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1356927999}
+    jointName: wrist_2_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1600386902}
+    jointName: wrist_3_link
+    rotationAngle: 0
+  - jointObject: {fileID: 637249811}
+    jointName: flange
+    rotationAngle: 0
+  - jointObject: {fileID: 1608583869}
+    jointName: tool0
+    rotationAngle: 0
+  - jointObject: {fileID: 631789999}
+    jointName: br_caster_rotation_link
+    rotationAngle: 0
+  - jointObject: {fileID: 82032074}
+    jointName: br_caster_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 504624468}
+    jointName: bl_caster_rotation_link
+    rotationAngle: 0
+  - jointObject: {fileID: 2011875177}
+    jointName: bl_caster_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 629505205}
+    jointName: fr_caster_rotation_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1991573108}
+    jointName: fr_caster_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1464008669}
+    jointName: fl_caster_rotation_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1203537854}
+    jointName: fl_caster_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1094565687}
+    jointName: right_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 495582024}
+    jointName: left_wheel_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1134973016}
+    jointName: us_2_frame
+    rotationAngle: 0
+  - jointObject: {fileID: 112550441}
+    jointName: us_1_frame
+    rotationAngle: 0
+  - jointObject: {fileID: 618545155}
+    jointName: back_laser_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1351806842}
+    jointName: front_laser_link
+    rotationAngle: 0
+  - jointObject: {fileID: 1683712326}
+    jointName: imu_link
+    rotationAngle: 0
+  - jointObject: {fileID: 79186951}
+    jointName: imu_frame
+    rotationAngle: 0
 --- !u!114 &489683659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6295,7 +6289,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2022ef4c701bd834d8b40f440d2513dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topicName: /joint_states
+  topicName: /querry_states
+--- !u!114 &489683660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489683655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7601b8716acaba04b9acac75b6b7f546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObject: {fileID: 2076801764}
 --- !u!1 &495582024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6344,10 +6351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: left_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &495582027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6360,12 +6363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &495582028
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -6430,7 +6427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &498216083
 GameObject:
   m_ObjectHideFlags: 8
@@ -6522,10 +6518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: box_mir100
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &498966913
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -6590,7 +6582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &504624468
 GameObject:
   m_ObjectHideFlags: 0
@@ -6640,10 +6631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: bl_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &504624471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6656,12 +6643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &504624472
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -6726,7 +6707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &504854482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7371,10 +7351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: us_2_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &570459083
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -7439,7 +7415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &577804306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7484,7 +7459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &578365721
 GameObject:
   m_ObjectHideFlags: 0
@@ -7497,6 +7471,10 @@ GameObject:
   - component: {fileID: 578365725}
   - component: {fileID: 578365724}
   - component: {fileID: 578365723}
+  - component: {fileID: 578365729}
+  - component: {fileID: 578365728}
+  - component: {fileID: 578365727}
+  - component: {fileID: 578365726}
   m_Layer: 0
   m_Name: goal marker
   m_TagString: Untagged
@@ -7512,7 +7490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578365721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.225, y: -0.4, z: 0}
+  m_LocalPosition: {x: -0.225, y: -0.37, z: 0}
   m_LocalScale: {x: 0.1, y: 0.2, z: 0.1}
   m_Children:
   - {fileID: 1715734942}
@@ -7582,6 +7560,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578365721}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &578365726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578365721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897856bee006b0146a3d6dea76d6eecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cylinder: {fileID: 578365721}
+  _localYCoordinate: -0.37
+--- !u!114 &578365727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578365721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
+--- !u!114 &578365728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578365721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostTransform: {fileID: 578365722}
+  manipulationType: 3
+  twoHandedManipulationType: 7
+  allowFarManipulation: 1
+  useForcesForNearManipulation: 0
+  oneHandRotationModeNear: 1
+  oneHandRotationModeFar: 1
+  releaseBehavior: 3
+  transformSmoothingLogicType:
+    reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
+      Microsoft.MixedReality.Toolkit.SDK
+  smoothingFar: 1
+  smoothingNear: 1
+  moveLerpTime: 0.001
+  rotateLerpTime: 0.001
+  scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 578365729}
+  elasticsManager: {fileID: 0}
+  onManipulationStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onManipulationEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 594923334}
+        m_TargetAssemblyTypeName: NavigationController, Assembly-CSharp
+        m_MethodName: PublishNavGoal
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 578365721}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &578365729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578365721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98de877dee5fc341b4eb59dfdab266c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoConstraintSelection: 1
+  selectedConstraints: []
 --- !u!1 &578979185
 GameObject:
   m_ObjectHideFlags: 0
@@ -7826,7 +7901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &594923333
 Transform:
   m_ObjectHideFlags: 0
@@ -7867,7 +7942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00ba93dc3fd06c43a1d40014d517ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navigationGoalTopic: /nav_goal
+  navigationGoalTopic: /unity/end_effector_goal
+  _gameObject: {fileID: 0}
 --- !u!114 &594923336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7880,7 +7956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169bce7c4676a6944ada51b77cfc3b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topicName: /joint_states
+  topicName: /odom
 --- !u!1 &604128649
 GameObject:
   m_ObjectHideFlags: 0
@@ -8177,10 +8253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_back_laser_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &618545158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8193,12 +8265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0058560977, y: 0.0048360983, z: 0.0058249976}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &618545159
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -8263,7 +8329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &625206946
 GameObject:
   m_ObjectHideFlags: 8
@@ -8365,7 +8430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417288573179817502, guid: 1eeaabe64d09ff747a958780589157ea, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417288573179817502, guid: 1eeaabe64d09ff747a958780589157ea, type: 3}
+      propertyPath: m_RosIPAddress
+      value: 192.168.0.246
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eeaabe64d09ff747a958780589157ea, type: 3}
@@ -8418,10 +8487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fr_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &629505208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8434,12 +8499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &629505209
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -8504,7 +8563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &631789999
 GameObject:
   m_ObjectHideFlags: 0
@@ -8554,10 +8612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: br_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &631790002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8570,12 +8624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &631790003
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -8640,7 +8688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &636468706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8685,7 +8732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &637249811
 GameObject:
   m_ObjectHideFlags: 0
@@ -8734,10 +8780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_3-flange
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &637249814
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -8802,7 +8844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &641474846
 GameObject:
   m_ObjectHideFlags: 0
@@ -8847,7 +8888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &646442650
 GameObject:
   m_ObjectHideFlags: 0
@@ -8877,10 +8917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf4c79288754864b8d522b69f4b52a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FilePath: 
-  chosenAxis: 0
-  currentOrientation: 0
-  collisionExceptions: []
 --- !u!4 &646442653
 Transform:
   m_ObjectHideFlags: 0
@@ -8941,7 +8977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &649629503
 GameObject:
   m_ObjectHideFlags: 8
@@ -9123,7 +9158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &663712772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9168,7 +9202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &665898920
 GameObject:
   m_ObjectHideFlags: 8
@@ -9307,10 +9340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: box_ur5e
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &675268137
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -9375,7 +9404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &677932011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9729,7 +9757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &704244810
 GameObject:
   m_ObjectHideFlags: 0
@@ -9774,7 +9801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 0
 --- !u!1 &704402448
 GameObject:
   m_ObjectHideFlags: 0
@@ -10036,7 +10062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1001 &728029131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10712,7 +10737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &755061233
 GameObject:
   m_ObjectHideFlags: 0
@@ -10786,9 +10810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libgazebo_ros_control.so\" name=\"gazebo_ros_control\">\r\n   
-    <controlPeriod>0.001</controlPeriod>\r\n    <legacyModeNS>false</legacyModeNS>\r\n 
-    </plugin>\r\n</gazebo>"
 --- !u!114 &755061236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10801,10 +10822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_3_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_3_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_3_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10817,10 +10834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_2_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_2_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_2_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10833,10 +10846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_1_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_1_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_1_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10849,10 +10858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_elbow_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_elbow_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_elbow_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10865,10 +10870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_shoulder_lift_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_shoulder_lift_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_shoulder_lift_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10881,10 +10882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_shoulder_pan_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_shoulder_pan_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_shoulder_pan_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &755061242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10897,11 +10894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libgazebo_ros_p3d.so\" name=\"p3d_base_controller\">\r\n   
-    <alwaysOn>true</alwaysOn>\r\n    <updateRate>50.0</updateRate>\r\n    <bodyName>base_footprint</bodyName>\r\n   
-    <topicName>base_pose_ground_truth</topicName>\r\n    <gaussianNoise>0.01</gaussianNoise>\r\n   
-    <frameName>map</frameName>\r\n    <xyzOffsets>0 0 0</xyzOffsets>\r\n    <rpyOffsets>0
-    0 0</rpyOffsets>\r\n  </plugin>\r\n</gazebo>"
 --- !u!114 &755061243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10914,9 +10906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10929,9 +10918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10944,9 +10930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10959,9 +10942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10974,9 +10954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"right_wheel_link\">\r\n  <mu1 value=\"200\" />\r\n 
-    <mu2 value=\"200\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10989,9 +10966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"left_wheel_link\">\r\n  <mu1 value=\"200\" />\r\n 
-    <mu2 value=\"200\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &755061249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11004,10 +10978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"right_wheel_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"right_wheel_joint\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"right_wheel_motor\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n   
-    <mechanicalReduction>1</mechanicalReduction>\r\n  </actuator>\r\n</transmission>"
 --- !u!114 &755061250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11020,10 +10990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"left_wheel_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"left_wheel_joint\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"left_wheel_motor\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n   
-    <mechanicalReduction>1</mechanicalReduction>\r\n  </actuator>\r\n</transmission>"
 --- !u!114 &755061251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11036,7 +11002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11049,7 +11014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &755061253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11062,7 +11026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11075,7 +11038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &755061255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11088,7 +11050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11101,7 +11062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &755061257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11114,7 +11074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11127,7 +11086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &755061259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11140,7 +11098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"right_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11153,7 +11110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"left_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &755061261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11166,22 +11122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"back_laser_link\">\r\n  <!-- <material value=\"Gazebo/Yellow\"
-    /> -->\r\n  <material value=\"Gazebo/FlatBlack\" />\r\n  <sensor name=\"back_laser_link\"
-    type=\"ray\">\r\n    <pose>0 0 0 0 0 0</pose>\r\n    <visualize>false</visualize>\r\n   
-    <update_rate>12.5</update_rate>\r\n    <ray>\r\n      <scan>\r\n        <horizontal>\r\n         
-    <samples>541</samples>\r\n          <resolution>1</resolution>\r\n          <!--
-    has to be 1; actual resolution will be computed from number of samples + min_angle/max_angle
-    -->\r\n          <min_angle>-2.35619449615</min_angle>\r\n          <max_angle>2.35619449615</max_angle>\r\n       
-    </horizontal>\r\n      </scan>\r\n      <range>\r\n        <min>0.05</min>\r\n       
-    <max>29.0</max>\r\n        <resolution>0.01</resolution>\r\n      </range>\r\n     
-    <noise>\r\n        <type>gaussian</type>\r\n        <!-- Noise parameters based
-    on published spec for S300 achieving\r\n                 \"+-29mm\" accuracy
-    at range < 3m (~0.01 of the range) at\r\n                 1 sigma. -->\r\n       
-    <mean>0.0</mean>\r\n        <stddev>0.01</stddev>\r\n      </noise>\r\n    </ray>\r\n   
-    <plugin filename=\"libgazebo_ros_laser.so\" name=\"gazebo_ros_back_laser_link_controller\">\r\n     
-    <frameName>back_laser_link</frameName>\r\n      <topicName>b_scan</topicName>\r\n   
-    </plugin>\r\n  </sensor>\r\n</gazebo>"
 --- !u!114 &755061262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11194,22 +11134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"front_laser_link\">\r\n  <!-- <material value=\"Gazebo/Yellow\"
-    /> -->\r\n  <material value=\"Gazebo/FlatBlack\" />\r\n  <sensor name=\"front_laser_link\"
-    type=\"ray\">\r\n    <pose>0 0 0 0 0 0</pose>\r\n    <visualize>false</visualize>\r\n   
-    <update_rate>12.5</update_rate>\r\n    <ray>\r\n      <scan>\r\n        <horizontal>\r\n         
-    <samples>541</samples>\r\n          <resolution>1</resolution>\r\n          <!--
-    has to be 1; actual resolution will be computed from number of samples + min_angle/max_angle
-    -->\r\n          <min_angle>-2.35619449615</min_angle>\r\n          <max_angle>2.35619449615</max_angle>\r\n       
-    </horizontal>\r\n      </scan>\r\n      <range>\r\n        <min>0.05</min>\r\n       
-    <max>29.0</max>\r\n        <resolution>0.01</resolution>\r\n      </range>\r\n     
-    <noise>\r\n        <type>gaussian</type>\r\n        <!-- Noise parameters based
-    on published spec for S300 achieving\r\n                 \"+-29mm\" accuracy
-    at range < 3m (~0.01 of the range) at\r\n                 1 sigma. -->\r\n       
-    <mean>0.0</mean>\r\n        <stddev>0.01</stddev>\r\n      </noise>\r\n    </ray>\r\n   
-    <plugin filename=\"libgazebo_ros_laser.so\" name=\"gazebo_ros_front_laser_link_controller\">\r\n     
-    <frameName>front_laser_link</frameName>\r\n      <topicName>f_scan</topicName>\r\n   
-    </plugin>\r\n  </sensor>\r\n</gazebo>"
 --- !u!114 &755061263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11222,17 +11146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libhector_gazebo_ros_imu.so\" name=\"imu_plugin\">\r\n   
-    <updateRate>50.0</updateRate>\r\n    <bodyName>imu_link</bodyName>\r\n    <frameId>imu_frame</frameId>\r\n   
-    <!-- from real MiR -->\r\n    <topicName>imu_data</topicName>\r\n    <accelDrift>0.0
-    0.0 0.0</accelDrift>\r\n    <accelGaussianNoise>0.007071067811865475 0.01 0.011401754250991379</accelGaussianNoise>\r\n   
-    <!-- real MiR linear_acceleration_covariance: [5e-05, 0.0, 0.0, 0.0, 0.0001,
-    0.0, 0.0, 0.0, 0.00013] -->\r\n    <rateDrift>0.0 0.0 0.0</rateDrift>\r\n   
-    <rateGaussianNoise>0.00282842712474619 0.00282842712474619 0.0005477225575051661</rateGaussianNoise>\r\n   
-    <!-- real MiR angular_velocity_covariance: [8e-06, 0.0, 0.0, 0.0, 8e-06, 0.0,
-    0.0, 0.0, 3e-07] -->\r\n    <yawDrift>0.0</yawDrift>\r\n    <yawGaussianNoise>0.31622776601683794</yawGaussianNoise>\r\n   
-    <!-- real MiR orientation_covariance: [0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
-    0.1] -->\r\n  </plugin>\r\n</gazebo>"
 --- !u!114 &755061264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11245,7 +11158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"base_link\">\r\n  <material>Gazebo/White</material>\r\n</gazebo>"
 --- !u!114 &755061265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11302,7 +11214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &771585650
 GameObject:
   m_ObjectHideFlags: 0
@@ -11347,7 +11258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &787051330
 GameObject:
   m_ObjectHideFlags: 0
@@ -11392,7 +11302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &790020255
 GameObject:
   m_ObjectHideFlags: 8
@@ -11481,7 +11390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &819090273
 GameObject:
   m_ObjectHideFlags: 8
@@ -11697,7 +11605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &859315325
 GameObject:
   m_ObjectHideFlags: 8
@@ -11787,7 +11694,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 1
 --- !u!1 &873496423
 GameObject:
   m_ObjectHideFlags: 0
@@ -11832,7 +11738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &881315790
 GameObject:
   m_ObjectHideFlags: 8
@@ -12434,10 +12339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: elbow_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &940115851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12450,12 +12351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.007, z: -0.1961}
-  inertiaTensor: {x: 0.031209353, y: 0.004095, z: 0.031209353}
-  inertiaTensorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  inertialAxisRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!171741748 &940115852
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -12520,7 +12415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &941362827
 GameObject:
   m_ObjectHideFlags: 8
@@ -12733,7 +12627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &963714747
 GameObject:
   m_ObjectHideFlags: 8
@@ -12913,10 +12806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: bl_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &973709182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12929,12 +12818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &973709183
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -12999,7 +12882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &975614459
 GameObject:
   m_ObjectHideFlags: 8
@@ -13222,7 +13104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &995317041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13381,7 +13262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1025305136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13596,7 +13476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1033155256
 GameObject:
   m_ObjectHideFlags: 0
@@ -13644,10 +13523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: ur5e_base_link-base_fixed_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1033155259
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -13712,7 +13587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1033813835
 GameObject:
   m_ObjectHideFlags: 0
@@ -13757,7 +13631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1042000646
 GameObject:
   m_ObjectHideFlags: 0
@@ -13802,7 +13675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1055013977
 GameObject:
   m_ObjectHideFlags: 8
@@ -13938,10 +13810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_front_laser_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1056792405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13954,12 +13822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0058560977, y: 0.0048360983, z: 0.0058249976}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1056792406
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -14024,7 +13886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1057908171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14187,7 +14048,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1062821518
 GameObject:
   m_ObjectHideFlags: 0
@@ -14232,7 +14092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1077005905
 GameObject:
   m_ObjectHideFlags: 0
@@ -14282,10 +14141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: ur5e_base_link-base_link_inertia
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1077005908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14298,12 +14153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0044333315, y: 0.0072000003, z: 0.0044333315}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1077005909
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -14368,7 +14217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1080070779
 GameObject:
   m_ObjectHideFlags: 0
@@ -14413,7 +14261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1082095408
 GameObject:
   m_ObjectHideFlags: 8
@@ -14501,7 +14348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1094565687
 GameObject:
   m_ObjectHideFlags: 0
@@ -14550,10 +14396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: right_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1094565690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14566,12 +14408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1094565691
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -14636,7 +14472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1095275006
 GameObject:
   m_ObjectHideFlags: 8
@@ -14724,7 +14559,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1102135721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14896,7 +14730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1001 &1121804956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15108,10 +14941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: us_2_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1134973019
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -15176,7 +15005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1146036938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15304,7 +15132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1151786975
 GameObject:
   m_ObjectHideFlags: 0
@@ -15349,7 +15176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1154247954
 GameObject:
   m_ObjectHideFlags: 8
@@ -15610,10 +15436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: elbow_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1181068677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15626,12 +15448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.007, z: -0.1961}
-  inertiaTensor: {x: 0.031209353, y: 0.004095, z: 0.031209353}
-  inertiaTensorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  inertialAxisRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!171741748 &1181068678
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -15696,7 +15512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1187868227
 GameObject:
   m_ObjectHideFlags: 0
@@ -15741,7 +15556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1191347133
 GameObject:
   m_ObjectHideFlags: 8
@@ -16187,10 +16001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fl_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1203537857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16203,12 +16013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1203537858
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -16273,7 +16077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1208934742
 GameObject:
   m_ObjectHideFlags: 0
@@ -16318,7 +16121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1209689909
 GameObject:
   m_ObjectHideFlags: 0
@@ -16363,7 +16165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1213077596
 GameObject:
   m_ObjectHideFlags: 8
@@ -16606,7 +16407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1247324188
 GameObject:
   m_ObjectHideFlags: 0
@@ -16651,7 +16451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1250956414
 GameObject:
   m_ObjectHideFlags: 0
@@ -16701,10 +16500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: box_ur5e
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1250956417
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -16769,7 +16564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1252969051
 GameObject:
   m_ObjectHideFlags: 8
@@ -16929,10 +16723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: shoulder_pan_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1262739480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16945,12 +16735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.010267496, y: 0.00666, z: 0.010267496}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1262739481
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -17015,7 +16799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1263366897
 GameObject:
   m_ObjectHideFlags: 0
@@ -17060,7 +16843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1266290240
 GameObject:
   m_ObjectHideFlags: 8
@@ -17178,9 +16960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libgazebo_ros_control.so\" name=\"gazebo_ros_control\">\r\n   
-    <controlPeriod>0.001</controlPeriod>\r\n    <legacyModeNS>false</legacyModeNS>\r\n 
-    </plugin>\r\n</gazebo>"
 --- !u!114 &1269808446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17193,10 +16972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_3_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_3_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_3_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17209,10 +16984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_2_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_2_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_2_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17225,10 +16996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_wrist_1_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_wrist_1_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_wrist_1_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17241,10 +17008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_elbow_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_elbow_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_elbow_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17257,10 +17020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_shoulder_lift_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_shoulder_lift_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_shoulder_lift_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17273,10 +17032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"ur5e_shoulder_pan_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"ur5e_shoulder_pan_joint\">\r\n    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"ur5e_shoulder_pan_motor\">\r\n    <mechanicalReduction>1</mechanicalReduction>\r\n 
-    </actuator>\r\n</transmission>"
 --- !u!114 &1269808452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17289,11 +17044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libgazebo_ros_p3d.so\" name=\"p3d_base_controller\">\r\n   
-    <alwaysOn>true</alwaysOn>\r\n    <updateRate>50.0</updateRate>\r\n    <bodyName>base_footprint</bodyName>\r\n   
-    <topicName>base_pose_ground_truth</topicName>\r\n    <gaussianNoise>0.01</gaussianNoise>\r\n   
-    <frameName>map</frameName>\r\n    <xyzOffsets>0 0 0</xyzOffsets>\r\n    <rpyOffsets>0
-    0 0</rpyOffsets>\r\n  </plugin>\r\n</gazebo>"
 --- !u!114 &1269808453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17306,9 +17056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17321,9 +17068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17336,9 +17080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17351,9 +17092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_wheel_link\">\r\n  <mu1 value=\"1\"
-    />\r\n  <mu2 value=\"1\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17366,9 +17104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"right_wheel_link\">\r\n  <mu1 value=\"200\" />\r\n 
-    <mu2 value=\"200\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17381,9 +17116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"left_wheel_link\">\r\n  <mu1 value=\"200\" />\r\n 
-    <mu2 value=\"200\" />\r\n  <kp value=\"10000000.0\" />\r\n  <kd value=\"1.0\"
-    />\r\n  <minDepth>0.01</minDepth>\r\n</gazebo>"
 --- !u!114 &1269808459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17396,10 +17128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"right_wheel_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"right_wheel_joint\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"right_wheel_motor\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n   
-    <mechanicalReduction>1</mechanicalReduction>\r\n  </actuator>\r\n</transmission>"
 --- !u!114 &1269808460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17412,10 +17140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<transmission name=\"left_wheel_trans\">\r\n  <type>transmission_interface/SimpleTransmission</type>\r\n 
-    <joint name=\"left_wheel_joint\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n 
-    </joint>\r\n  <actuator name=\"left_wheel_motor\">\r\n    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\r\n   
-    <mechanicalReduction>1</mechanicalReduction>\r\n  </actuator>\r\n</transmission>"
 --- !u!114 &1269808461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17428,7 +17152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17441,7 +17164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"br_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &1269808463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17454,7 +17176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17467,7 +17188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"bl_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &1269808465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17480,7 +17200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17493,7 +17212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fr_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &1269808467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17506,7 +17224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17519,7 +17236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"fl_caster_rotation_link\">\r\n  <material>Gazebo/Grey</material>\r\n</gazebo>"
 --- !u!114 &1269808469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17532,7 +17248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"right_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17545,7 +17260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"left_wheel_link\">\r\n  <material>Gazebo/FlatBlack</material>\r\n</gazebo>"
 --- !u!114 &1269808471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17558,22 +17272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"back_laser_link\">\r\n  <!-- <material value=\"Gazebo/Yellow\"
-    /> -->\r\n  <material value=\"Gazebo/FlatBlack\" />\r\n  <sensor name=\"back_laser_link\"
-    type=\"ray\">\r\n    <pose>0 0 0 0 0 0</pose>\r\n    <visualize>false</visualize>\r\n   
-    <update_rate>12.5</update_rate>\r\n    <ray>\r\n      <scan>\r\n        <horizontal>\r\n         
-    <samples>541</samples>\r\n          <resolution>1</resolution>\r\n          <!--
-    has to be 1; actual resolution will be computed from number of samples + min_angle/max_angle
-    -->\r\n          <min_angle>-2.35619449615</min_angle>\r\n          <max_angle>2.35619449615</max_angle>\r\n       
-    </horizontal>\r\n      </scan>\r\n      <range>\r\n        <min>0.05</min>\r\n       
-    <max>29.0</max>\r\n        <resolution>0.01</resolution>\r\n      </range>\r\n     
-    <noise>\r\n        <type>gaussian</type>\r\n        <!-- Noise parameters based
-    on published spec for S300 achieving\r\n                 \"+-29mm\" accuracy
-    at range < 3m (~0.01 of the range) at\r\n                 1 sigma. -->\r\n       
-    <mean>0.0</mean>\r\n        <stddev>0.01</stddev>\r\n      </noise>\r\n    </ray>\r\n   
-    <plugin filename=\"libgazebo_ros_laser.so\" name=\"gazebo_ros_back_laser_link_controller\">\r\n     
-    <frameName>back_laser_link</frameName>\r\n      <topicName>b_scan</topicName>\r\n   
-    </plugin>\r\n  </sensor>\r\n</gazebo>"
 --- !u!114 &1269808472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17586,22 +17284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"front_laser_link\">\r\n  <!-- <material value=\"Gazebo/Yellow\"
-    /> -->\r\n  <material value=\"Gazebo/FlatBlack\" />\r\n  <sensor name=\"front_laser_link\"
-    type=\"ray\">\r\n    <pose>0 0 0 0 0 0</pose>\r\n    <visualize>false</visualize>\r\n   
-    <update_rate>12.5</update_rate>\r\n    <ray>\r\n      <scan>\r\n        <horizontal>\r\n         
-    <samples>541</samples>\r\n          <resolution>1</resolution>\r\n          <!--
-    has to be 1; actual resolution will be computed from number of samples + min_angle/max_angle
-    -->\r\n          <min_angle>-2.35619449615</min_angle>\r\n          <max_angle>2.35619449615</max_angle>\r\n       
-    </horizontal>\r\n      </scan>\r\n      <range>\r\n        <min>0.05</min>\r\n       
-    <max>29.0</max>\r\n        <resolution>0.01</resolution>\r\n      </range>\r\n     
-    <noise>\r\n        <type>gaussian</type>\r\n        <!-- Noise parameters based
-    on published spec for S300 achieving\r\n                 \"+-29mm\" accuracy
-    at range < 3m (~0.01 of the range) at\r\n                 1 sigma. -->\r\n       
-    <mean>0.0</mean>\r\n        <stddev>0.01</stddev>\r\n      </noise>\r\n    </ray>\r\n   
-    <plugin filename=\"libgazebo_ros_laser.so\" name=\"gazebo_ros_front_laser_link_controller\">\r\n     
-    <frameName>front_laser_link</frameName>\r\n      <topicName>f_scan</topicName>\r\n   
-    </plugin>\r\n  </sensor>\r\n</gazebo>"
 --- !u!114 &1269808473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17614,17 +17296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo>\r\n  <plugin filename=\"libhector_gazebo_ros_imu.so\" name=\"imu_plugin\">\r\n   
-    <updateRate>50.0</updateRate>\r\n    <bodyName>imu_link</bodyName>\r\n    <frameId>imu_frame</frameId>\r\n   
-    <!-- from real MiR -->\r\n    <topicName>imu_data</topicName>\r\n    <accelDrift>0.0
-    0.0 0.0</accelDrift>\r\n    <accelGaussianNoise>0.007071067811865475 0.01 0.011401754250991379</accelGaussianNoise>\r\n   
-    <!-- real MiR linear_acceleration_covariance: [5e-05, 0.0, 0.0, 0.0, 0.0001,
-    0.0, 0.0, 0.0, 0.00013] -->\r\n    <rateDrift>0.0 0.0 0.0</rateDrift>\r\n   
-    <rateGaussianNoise>0.00282842712474619 0.00282842712474619 0.0005477225575051661</rateGaussianNoise>\r\n   
-    <!-- real MiR angular_velocity_covariance: [8e-06, 0.0, 0.0, 0.0, 8e-06, 0.0,
-    0.0, 0.0, 3e-07] -->\r\n    <yawDrift>0.0</yawDrift>\r\n    <yawGaussianNoise>0.31622776601683794</yawGaussianNoise>\r\n   
-    <!-- real MiR orientation_covariance: [0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0,
-    0.1] -->\r\n  </plugin>\r\n</gazebo>"
 --- !u!114 &1269808474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17637,7 +17308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76add797bdb1d8c4b8276633f6e67167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PluginText: "<gazebo reference=\"base_link\">\r\n  <material>Gazebo/White</material>\r\n</gazebo>"
 --- !u!114 &1269808475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18200,7 +17870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1339251873
 GameObject:
   m_ObjectHideFlags: 8
@@ -18289,7 +17958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1351806842
 GameObject:
   m_ObjectHideFlags: 0
@@ -18338,10 +18006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_front_laser_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1351806845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18354,12 +18018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0058560977, y: 0.0048360983, z: 0.0058249976}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1351806846
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -18424,7 +18082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1351994317
 GameObject:
   m_ObjectHideFlags: 0
@@ -18469,7 +18126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1356927999
 GameObject:
   m_ObjectHideFlags: 0
@@ -18519,10 +18175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_2_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1356928002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18535,12 +18187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.002559899, y: 0.0021942, z: 0.002559899}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1356928003
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -18605,7 +18251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1373520304
 GameObject:
   m_ObjectHideFlags: 0
@@ -18655,10 +18300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fr_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1373520307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18671,12 +18312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &1373520308
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -18741,7 +18376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1373674642
 GameObject:
   m_ObjectHideFlags: 0
@@ -18789,10 +18423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: flange-tool0
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1373674645
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -18857,7 +18487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1377103261
 GameObject:
   m_ObjectHideFlags: 0
@@ -18992,7 +18621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1384294332
 GameObject:
   m_ObjectHideFlags: 0
@@ -19037,7 +18665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1385075939
 GameObject:
   m_ObjectHideFlags: 8
@@ -19274,7 +18901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1001 &1409363588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19489,10 +19115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: right_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1415974013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19505,12 +19127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1415974014
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -19575,7 +19191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1417474523
 GameObject:
   m_ObjectHideFlags: 8
@@ -19749,10 +19364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_back_laser_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1439030335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19765,12 +19376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0058560977, y: 0.0048360983, z: 0.0058249976}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1439030336
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -19835,7 +19440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1447517653
 GameObject:
   m_ObjectHideFlags: 0
@@ -20005,7 +19609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1458391696
 GameObject:
   m_ObjectHideFlags: 8
@@ -20099,10 +19702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: shoulder_lift_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1461048571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20115,12 +19714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.138, z: -0.2125}
-  inertiaTensor: {x: 0.13388579, y: 0.0151074, z: 0.13388579}
-  inertiaTensorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  inertialAxisRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!171741748 &1461048572
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -20185,7 +19778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1461692842
 GameObject:
   m_ObjectHideFlags: 0
@@ -20230,7 +19822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1461825637
 GameObject:
   m_ObjectHideFlags: 0
@@ -20275,7 +19866,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1463553078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20411,10 +20001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fl_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1464008672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20427,12 +20013,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &1464008673
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -20497,7 +20077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1467044984
 GameObject:
   m_ObjectHideFlags: 0
@@ -20547,10 +20126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fl_caster_rotation_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1467044987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20563,12 +20138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0425, z: 0}
-  inertiaTensor: {x: 0.0005287255, y: 0.00017923555, z: 0.0005844518}
-  inertiaTensorRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
-  inertialAxisRotation: {x: 0.14701577, y: -0.6916548, z: -0.14701577, w: 0.6916548}
 --- !u!171741748 &1467044988
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -20633,7 +20202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1468125901
 GameObject:
   m_ObjectHideFlags: 0
@@ -20966,7 +20534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 0
 --- !u!1001 &1549124965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21094,7 +20661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1557963270
 GameObject:
   m_ObjectHideFlags: 0
@@ -21139,7 +20705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1560928249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21271,10 +20836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: box_mir100
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1564772084
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -21339,7 +20900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1567219072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21780,7 +21340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1579544252
 GameObject:
   m_ObjectHideFlags: 8
@@ -21873,10 +21432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: left_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1582794338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21889,12 +21444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1582794339
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -21959,7 +21508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1590585214
 GameObject:
   m_ObjectHideFlags: 0
@@ -22009,10 +21557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_2_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1590585217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22025,12 +21569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.002559899, y: 0.0021942, z: 0.002559899}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1590585218
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -22095,7 +21633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1597970917
 GameObject:
   m_ObjectHideFlags: 8
@@ -22267,10 +21804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: wrist_3_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1600386905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22283,12 +21816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: -0.0229, z: 0}
-  inertiaTensor: {x: 0.00009890409, y: 0.00013211719, z: 0.00009890409}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1600386906
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -22353,7 +21880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1608583869
 GameObject:
   m_ObjectHideFlags: 0
@@ -22401,10 +21927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: flange-tool0
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1608583872
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -22469,7 +21991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1613060926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22580,7 +22101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1630897245
 GameObject:
   m_ObjectHideFlags: 8
@@ -22799,7 +22319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1 &1657061630
 GameObject:
   m_ObjectHideFlags: 0
@@ -22848,10 +22367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_surface_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1657061633
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -22916,7 +22431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1657914364
 GameObject:
   m_ObjectHideFlags: 8
@@ -23096,10 +22610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_to_imu_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &1683712329
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -23164,7 +22674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1686343956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23275,7 +22784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1715734941
 GameObject:
   m_ObjectHideFlags: 0
@@ -23543,7 +23051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1739531472
 GameObject:
   m_ObjectHideFlags: 8
@@ -23631,7 +23138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1746042943
 GameObject:
   m_ObjectHideFlags: 8
@@ -23802,10 +23308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1747112685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23818,12 +23320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.15, z: -0.012354}
-  inertiaTensor: {x: 1.8608326, y: 2.181666, z: 0.83416635}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1747112686
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -23888,7 +23384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1753424870
 GameObject:
   m_ObjectHideFlags: 0
@@ -23933,7 +23428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1755137401
 GameObject:
   m_ObjectHideFlags: 8
@@ -24027,10 +23521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: shoulder_lift_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1788771267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24043,12 +23533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0.138, z: -0.2125}
-  inertiaTensor: {x: 0.13388579, y: 0.0151074, z: 0.13388579}
-  inertiaTensorRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  inertialAxisRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!171741748 &1788771268
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -24113,7 +23597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &1790050704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24380,7 +23863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 1
 --- !u!1 &1834742608
 GameObject:
   m_ObjectHideFlags: 0
@@ -24425,7 +23907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1834913946
 GameObject:
   m_ObjectHideFlags: 8
@@ -25555,7 +25036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1884867438
 GameObject:
   m_ObjectHideFlags: 8
@@ -25692,10 +25172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fl_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1913509154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25708,12 +25184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1913509155
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -25778,7 +25248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1917049657
 GameObject:
   m_ObjectHideFlags: 8
@@ -26170,7 +25639,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1973781770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26541,14 +26009,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976088275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.16, y: -0.46999997, z: 2.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 646442653}
   - {fileID: 578365722}
   - {fileID: 164938419}
-  m_Father: {fileID: 252649554}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984461049
 GameObject:
@@ -26594,7 +26062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1001 &1986292946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26717,7 +26184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &1991573108
 GameObject:
   m_ObjectHideFlags: 0
@@ -26766,10 +26232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: fr_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1991573111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26782,12 +26244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &1991573112
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -26852,7 +26308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &1999171474
 GameObject:
   m_ObjectHideFlags: 0
@@ -26902,10 +26357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b6193734b4c8444bcfdf4e9953fe2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: shoulder_pan_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &1999171477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26918,12 +26369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.010267496, y: 0.00666, z: 0.010267496}
-  inertiaTensorRotation: {x: 0, y: 0, z: 0, w: 1}
-  inertialAxisRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!171741748 &1999171478
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -26988,7 +26433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &2010872150
 GameObject:
   m_ObjectHideFlags: 8
@@ -27182,10 +26626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: bl_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &2011875180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27198,12 +26638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &2011875181
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -27268,7 +26702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &2019917109
 GameObject:
   m_ObjectHideFlags: 8
@@ -27552,7 +26985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2685e7e7719cd43814f41f35664c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 1
 --- !u!1001 &2063811231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27684,10 +27116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: base_link_surface_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &2064061030
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -27752,7 +27180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &2069229253
 GameObject:
   m_ObjectHideFlags: 8
@@ -27844,10 +27271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074632cab556f5b408839af8574308df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: imu_link_to_imu_frame_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!171741748 &2070198491
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -27912,7 +27335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1 &2070897672
 GameObject:
   m_ObjectHideFlags: 8
@@ -27968,6 +27390,9 @@ GameObject:
   - component: {fileID: 2076801768}
   - component: {fileID: 2076801767}
   - component: {fileID: 2076801766}
+  - component: {fileID: 2076801770}
+  - component: {fileID: 2076801771}
+  - component: {fileID: 2076801769}
   m_Layer: 0
   m_Name: ManipulatorGoal
   m_TagString: Untagged
@@ -28051,6 +27476,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076801764}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2076801769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076801764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostTransform: {fileID: 2076801765}
+  manipulationType: 3
+  twoHandedManipulationType: 7
+  allowFarManipulation: 1
+  useForcesForNearManipulation: 0
+  oneHandRotationModeNear: 1
+  oneHandRotationModeFar: 1
+  releaseBehavior: 3
+  transformSmoothingLogicType:
+    reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
+      Microsoft.MixedReality.Toolkit.SDK
+  smoothingFar: 1
+  smoothingNear: 1
+  moveLerpTime: 0.001
+  rotateLerpTime: 0.001
+  scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 2076801771}
+  elasticsManager: {fileID: 0}
+  onManipulationStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onManipulationEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 489683657}
+        m_TargetAssemblyTypeName: PoseStampedPublisher, Assembly-CSharp
+        m_MethodName: GoalPublish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2076801770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076801764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
+--- !u!114 &2076801771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076801764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98de877dee5fc341b4eb59dfdab266c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoConstraintSelection: 1
+  selectedConstraints: []
 --- !u!1 &2076952483
 GameObject:
   m_ObjectHideFlags: 0
@@ -28289,7 +27797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0c8ba1123c5f949b20e50d5dd6afe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  geometryType: 3
 --- !u!1 &2133754248
 GameObject:
   m_ObjectHideFlags: 8
@@ -28425,10 +27932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6e27abb4aa1a64bbcf79a845601047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 0
-  jointName: bl_caster_wheel_joint
-  EffortLimit: 1000
-  VelocityLimit: 1000
 --- !u!114 &2134149182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28441,12 +27944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631001c063f69d4495bca90731abab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInertiaGizmo: 0
-  useUrdfData: 1
-  centerOfMass: {x: -0, y: 0, z: 0}
-  inertiaTensor: {x: 0.0010618954, y: 0.001953125, z: 0.0010618954}
-  inertiaTensorRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  inertialAxisRotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
 --- !u!171741748 &2134149183
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -28511,7 +28008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba5fd74d37a6cf4284698624eb8f6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBaseLink: 0
 --- !u!1001 &2146279858
 PrefabInstance:
   m_ObjectHideFlags: 0

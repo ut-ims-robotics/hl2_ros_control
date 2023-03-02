@@ -12,6 +12,9 @@ public class PoseStampedPublisher : MonoBehaviour
     [SerializeField]
     private String navigationGoalTopic = "/nav_goal";
 
+    [SerializeField]
+    private GameObject _gameObject;
+
     private PoseStampedMsg _goal;
 
     private ROSConnection ros;
